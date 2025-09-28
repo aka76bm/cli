@@ -1,3 +1,4 @@
+
 # GitHub CLI dependencies
 
 The following open source dependencies are used to build the [cli/cli][] GitHub CLI.
@@ -233,3 +234,4 @@ Some packages may only be included on certain architectures or operating systems
 - [k8s.io/klog/v2](https://pkg.go.dev/k8s.io/klog/v2) ([Apache-2.0](https://github.com/kubernetes/klog/blob/v2.130.1/LICENSE))
 
 [cli/cli]: https://github.com/cli/cli
+
