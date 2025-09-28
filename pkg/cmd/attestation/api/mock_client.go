@@ -10,11 +10,16 @@ func makeTestReleaseAttestation() Attestation {
 	return Attestation{
 		Bundle:    data.GitHubReleaseBundle(nil),
 		BundleURL: "https://example.com",
+		Initiator: "github",
 	}
 }
 
 func makeTestAttestation() Attestation {
-	return Attestation{Bundle: data.SigstoreBundle(nil), BundleURL: "https://example.com"}
+	return Attestation{
+		Bundle:    data.SigstoreBundle(nil),
+		BundleURL: "https://example.com",
+		Initiator: "user",
+	}
 }
 
 type MockClient struct {

@@ -97,7 +97,7 @@ func NewCmdEdit(f *cmdutil.Factory, runF func(*EditOptions) error) *cobra.Comman
 				// needs to know the API host. If the command is run outside of
 				// a git repo, we cannot instantiate the detector unless we have
 				// already parsed the URL.
-				if baseRepo, _, err := shared.ParseURL(opts.SelectorArg); err == nil {
+				if baseRepo, _, _, err := shared.ParseURL(opts.SelectorArg); err == nil {
 					opts.BaseRepo = func() (ghrepo.Interface, error) {
 						return baseRepo, nil
 					}

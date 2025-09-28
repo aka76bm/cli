@@ -143,6 +143,7 @@ func verifyRun(config *VerifyConfig) error {
 		PredicateType: shared.ReleasePredicateType,
 		Owner:         baseRepo.RepoOwner(),
 		Repo:          baseRepo.RepoOwner() + "/" + baseRepo.RepoName(),
+		Initiator:     "github",
 		// TODO: Allow this value to be set via a flag.
 		// The limit is set to 100 to ensure we fetch all attestations for a given SHA.
 		// While multiple attestations can exist for a single SHA,

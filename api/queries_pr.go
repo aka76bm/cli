@@ -62,6 +62,7 @@ type PullRequest struct {
 	MergedBy            *Author
 	HeadRepositoryOwner Owner
 	HeadRepository      *PRRepository
+	Repository          *PRRepository
 	IsCrossRepository   bool
 	IsDraft             bool
 	MaintainerCanModify bool
@@ -251,8 +252,9 @@ type Workflow struct {
 }
 
 type PRRepository struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID            string `json:"id"`
+	Name          string `json:"name"`
+	NameWithOwner string `json:"nameWithOwner"`
 }
 
 type AutoMergeRequest struct {

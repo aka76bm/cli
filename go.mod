@@ -50,6 +50,7 @@ require (
 	github.com/spf13/cobra v1.9.1
 
 	github.com/theupdateframework/go-tuf/v2 v2.1.1
+	github.com/vmihailenco/msgpack/v5 v5.4.1
 	github.com/yuin/goldmark v1.7.13
 	github.com/zalando/go-keyring v0.2.6
 	golang.org/x/crypto v0.42.0
@@ -213,6 +214,7 @@ require (
 	github.com/transparency-dev/merkle v0.0.2 // indirect
 	github.com/transparency-dev/tessera v1.0.0-rc2 // indirect
 	github.com/vbatts/tar-split v0.12.1 // indirect
+	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/yuin/goldmark-emoji v1.0.6 // indirect
 	github.com/zeebo/errs v1.4.0 // indirect

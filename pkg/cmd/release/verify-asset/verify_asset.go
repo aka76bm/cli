@@ -161,14 +161,15 @@ func verifyAssetRun(config *VerifyAssetConfig) error {
 		// The limit is set to 100 to ensure we fetch all attestations for a given SHA.
 		// While multiple attestations can exist for a single SHA,
 		// only one attestation is associated with each release tag.
-		Limit: 100,
+		Initiator: "github",
+		Limit:     100,
 	})
 	if err != nil {
 		return fmt.Errorf("no attestations found for tag %s (%s)", tagName, releaseRefDigest.DigestWithAlg())
 	}
 
 	// Filter attestations by tag name
-	filteredAttestations, err := shared.FilterAttestationsByTag(attestations, opts.TagName)
+	filteredAttestations, err := shared.FilterAttestationsByTag(attestations, tagName)
 	if err != nil {
 		return fmt.Errorf("error parsing attestations for tag %s: %w", tagName, err)
 	}
@@ -201,9 +202,9 @@ func verifyAssetRun(config *VerifyAssetConfig) error {
 	io := config.IO
 	cs := io.ColorScheme()
 	fmt.Fprintf(io.Out, "Calculated digest for %s: %s\n", fileName, fileDigest.DigestWithAlg())
-	fmt.Fprintf(io.Out, "Resolved tag %s to %s\n", opts.TagName, releaseRefDigest.DigestWithAlg())
+	fmt.Fprintf(io.Out, "Resolved tag %s to %s\n", tagName, releaseRefDigest.DigestWithAlg())
 	fmt.Fprint(io.Out, "Loaded attestation from GitHub API\n\n")
-	fmt.Fprintf(io.Out, cs.Green("%s Verification succeeded! %s is present in release %s\n"), cs.SuccessIcon(), fileName, opts.TagName)
+	fmt.Fprintf(io.Out, cs.Green("%s Verification succeeded! %s is present in release %s\n"), cs.SuccessIcon(), fileName, tagName)
 
 	return nil
 }
